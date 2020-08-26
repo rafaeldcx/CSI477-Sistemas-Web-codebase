@@ -2,9 +2,13 @@
 
 ## Atualize os seus dados:
 
-## Nome:
-## Matrícula:
-## Curso:
-## Link para o seu GitHub
+- Nome:
+- Matrícula:
+- Curso:
+- Semestre/Ano correntes:
+- Link para o seu GitHub:
 
-## Projeto final: (breve descrição)
+## [Projeto final:](./Projeto/README.md) 
+
+Apresente uma breve descrição do seu projeto.
+
