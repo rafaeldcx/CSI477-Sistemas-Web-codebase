@@ -1,4 +1,4 @@
-# **CSI477-2020-01 - Remoto - Trabalho Final - Resultados**
+# **CSI606-2020-02 - Remoto - Trabalho Final - Resultados**
 ## *Aluna(o): Princesa Leia (Luke Skywalker)*
 
 --------------
