@@ -1,4 +1,4 @@
-# **CSI606-2020-02 - Remoto - Proposta de Trabalho Final**
+# **CSI606-2021-01 - Remoto - Proposta de Trabalho Final**
 ## *Aluna(o): Princesa Leia (Luke Skywalker)*
 
 --------------
