@@ -1,7 +1,7 @@
-import prismaClient from "../../prisma";
+import prismaClient from "../../database";
 
 export class updateDoacaoService {
-    async execute(id: string, pessoaId: string, localId: string, data: Date) {
+    async execute(id: number, pessoaId: number, localId: number, data: Date) {
 
         if(!id){
             throw new Error("Invalid Request")

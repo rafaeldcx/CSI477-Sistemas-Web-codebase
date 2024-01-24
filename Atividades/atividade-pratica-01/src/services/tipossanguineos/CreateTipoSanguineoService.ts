@@ -1,4 +1,4 @@
-import prismaClient from '../../prisma'                                  // Importing prismaClient
+import prismaClient from '../../database'                                  // Importing prismaClient
 
 
 interface createrTipoSanguineoProps{                                          // Defining the types of the params

@@ -1,7 +1,7 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../database'
 
 export class getByIDLocalColetaService {
-    async execute(id: string) {
+    async execute(id: number) {
 
         try{
             const localColeta = await prismaClient.localColeta.findFirst({

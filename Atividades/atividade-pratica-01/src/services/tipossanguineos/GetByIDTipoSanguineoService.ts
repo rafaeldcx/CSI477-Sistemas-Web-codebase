@@ -1,7 +1,7 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../database'
 
 export class getByIDTipoSanguineoService {
-    async execute(id: string) {
+    async execute(id: number) {
 
         try{
             const tipoSanguineo = await prismaClient.tipoSanguineo.findFirst({

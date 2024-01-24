@@ -1,7 +1,7 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../database'
 
 export class getByIDCidadeService {
-    async execute(id: string) {
+    async execute(id: number) {
 
         try{
             const cidade = await prismaClient.cidade.findFirst({

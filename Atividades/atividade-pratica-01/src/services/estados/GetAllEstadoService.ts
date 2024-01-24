@@ -1,4 +1,4 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../database'
 
 export class getAllEstadoService {
     async execute() {

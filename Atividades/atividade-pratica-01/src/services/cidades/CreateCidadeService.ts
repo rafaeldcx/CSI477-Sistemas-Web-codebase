@@ -1,24 +1,28 @@
-import prismaClient from '../../prisma'                                  // Importing prismaClient
+import prismaClient from '../../database'                                  // Importing prismaClient
 
 
 interface createrCidadeProps{                                          // Defining the types of the params
 
     nome: string;
-    estadoId: string;  
+    estadoId: number;  
 
 }
 
 export class createCidadeService {
     async execute({nome, estadoId}: createrCidadeProps){                  // Defining the service
 
-        if (nome==='' || estadoId ===''){ 
+        if (!nome || !estadoId){ 
             throw new Error("Fill in all fields")
         }                                                                // Checking if params are missing
 
         const cidade = await prismaClient.cidade.create({  
             data:{
                 nome, 
-                estadoId 
+                estado: {
+                    connect: {
+                        id: estadoId,
+                    },
+                }
             }
         })                                                               // Creating cidade
                                                                         

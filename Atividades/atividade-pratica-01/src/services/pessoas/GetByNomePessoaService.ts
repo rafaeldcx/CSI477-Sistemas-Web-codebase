@@ -1,4 +1,4 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../database'
 
 export class getByNomePessoaService {
     async execute(nome: string) {

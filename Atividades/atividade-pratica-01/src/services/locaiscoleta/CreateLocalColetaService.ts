@@ -1,4 +1,4 @@
-import prismaClient from '../../prisma'                                  // Importing prismaClient
+import prismaClient from '../../database'                                  // Importing prismaClient
 
 
 interface createrLocalColetaProps{                                          // Defining the types of the params
@@ -7,7 +7,7 @@ interface createrLocalColetaProps{                                          // D
     rua: string;
     numero: string;
     complemento: string;
-    cidadeId: string;  
+    cidadeId: number;  
 
 }
 
@@ -24,7 +24,11 @@ export class createLocalColetaService {
                 rua,
                 numero,
                 complemento,
-                cidadeId 
+                cidade: {
+                    connect: {
+                        id: cidadeId,
+                    },
+                },
             }
         })                                                               // Creating customer
                                                                         

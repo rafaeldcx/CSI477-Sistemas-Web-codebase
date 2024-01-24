@@ -21,7 +21,7 @@ const start = async () => {                                          // Defining
     await app.register(tiposSanguineosRoutes);
 
     try{
-        await app.listen({ port: 5000 });
+        await app.listen({ port: 3333 });
     }catch(err){
         process.exit(1);
     }

@@ -1,7 +1,7 @@
-import prismaClient from "../../prisma";
+import prismaClient from "../../database";
 
 export class updateTipoSanguineoService {
-    async execute(id: string, tipo: string, fator: string) {
+    async execute(id: number, tipo: string, fator: string) {
 
         if(!id){
             throw new Error("Invalid Request")

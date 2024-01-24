@@ -1,4 +1,4 @@
-import prismaClient from '../../prisma'                                  // Importing prismaClient
+import prismaClient from '../../database'                                  // Importing prismaClient
 
 
 interface createrPessoaProps{                                          // Defining the types of the params
@@ -7,16 +7,16 @@ interface createrPessoaProps{                                          // Defini
     rua: string; 
     numero: string;
     complemento: string;
-    cidadeId: string;
+    cidadeId: number;
     rg: string;
-    tipoId: string; 
+    tipoId: number; 
 
 }
 
 export class createPessoaService {
     async execute({nome, rua, numero, complemento, cidadeId, rg, tipoId}: createrPessoaProps){                  // Defining the service
 
-        if (nome==='' || rua==='' || numero==='' || complemento==='' || cidadeId==='' || rg==='' || tipoId ===''){ 
+        if (!nome || !rua || !numero || !complemento || !cidadeId || !rg || !tipoId){ 
             throw new Error("Fill in all fields")
         }                                                                // Checking if params are missing
 
@@ -26,12 +26,19 @@ export class createPessoaService {
                 rua,
                 numero,
                 complemento,
-                cidadeId,
+                cidade: {
+                    connect: {
+                        id: cidadeId,
+                    },
+                },
                 rg,
-                tipoId 
+                tipoSanguineo: {
+                    connect: {
+                        id: tipoId,
+            },
+        }, 
             }
-        })                                                               // Creating customer
-                                                                        
+        })                                                          
 
         return pessoa
     }

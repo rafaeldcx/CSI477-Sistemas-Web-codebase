@@ -1,7 +1,7 @@
-import prismaClient from "../../prisma";
+import prismaClient from "../../database";
 
 export class updateLocalColetaService {
-    async execute(id: string, nome: string, rua: string, numero: string, complemento: string, cidadeId: string) {
+    async execute(id: number, nome: string, rua: string, numero: string, complemento: string, cidadeId: number) {
 
         if(!id){
             throw new Error("Invalid Request")

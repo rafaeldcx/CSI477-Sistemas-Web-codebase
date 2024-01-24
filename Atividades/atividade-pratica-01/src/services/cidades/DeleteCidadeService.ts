@@ -1,8 +1,8 @@
-import prismaClient from "../../prisma";
+import prismaClient from "../../database";
 
 
 interface deleteCidadeProps{
-    id: string;
+    id: number;
 }
 
 

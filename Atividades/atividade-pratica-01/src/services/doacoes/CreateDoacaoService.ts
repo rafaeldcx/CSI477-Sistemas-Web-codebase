@@ -1,10 +1,10 @@
-import prismaClient from '../../prisma'                                  // Importing prismaClient
+import prismaClient from '../../database'                                  // Importing prismaClient
 
 
 interface createrDoacaoProps{                                          // Defining the types of the params
 
-    pessoaId: string;
-    localId: string;
+    pessoaId: number;
+    localId: number;
     data: Date;  
 
 }
@@ -18,8 +18,16 @@ export class createDoacaoService {
 
         const doacao = await prismaClient.doacao.create({  
             data:{
-                pessoaId, 
-                localId,
+                pessoa: {
+                    connect: {
+                        id: pessoaId
+                    }
+                }, 
+                localColeta: {
+                    connect: {
+                        id: localId
+                    }
+                },
                 data 
             }
         })                                                               // Creating doacao
