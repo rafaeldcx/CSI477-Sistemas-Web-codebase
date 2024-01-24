@@ -10,6 +10,8 @@ export default function Home() {
       <Link href="#">Home</Link>
       <Link href="http://localhost:3333/estados">Estados</Link>
       <Link href="#">Cidades</Link>
+      <Link href="#">Pessoas</Link>
+      <Link href="#">Locais de Coleta</Link>
 
     </main>
   );

@@ -1,73 +1,51 @@
 "use client"
-import { FormEvent, useState } from "react"
-import { useRouter } from 'next/navigation'
+import { FormEvent, useState } from "react";
+import { useRouter } from 'next/router';
 
 export default function CreateEstado() {
+    const [nome, setNome] = useState('');
+    const [sigla, setSigla] = useState('');
+    const router = useRouter();
 
-    const [nome, setnome] = useState('');
-    const [sigla, setsigla] = useState('');
-    const { push } = useRouter();
+    const handleSubmit = async (event: FormEvent) => {
+        event.preventDefault();
 
-    async function handleSubmit(event: FormEvent) {
-       event.preventDefault();
+        const data = { nome, sigla };
 
-       const data = {
-        nome,
-        sigla
-       }
+        const response = await fetch('http://localhost:3333/estados', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
 
-       const requestInit : RequestInit = {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-       }
+        if (!response.ok) throw new Error("Error creating estado");
 
-       try {
-        const response = await fetch('http://localhost:3333/estados', requestInit);
-        if (response.ok) {
-            const estado = await response.json();
-            const { id } = estado;
-            alert(`Estado ${id} criado com sucesso`);
-            // Redirect to /estados
-            push('/estados');
+        const estado = await response.json();
+        alert(`Estado ${estado.id} criado com sucesso`);
 
-        }
-       } catch (error) {
-           
-       }
+        router.push('/estados');
+    };
 
-    }
-
-    return(
+    return (
         <main className="container m-auto">
-
             <h1>Cadastro de estados: {nome}</h1>
 
             <form onSubmit={handleSubmit}>
-                
                 <div>
                     <label htmlFor="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" 
-                    onChange={(event) => {
-                        setnome(event.target.value)
-                    }}/>
+                    <input type="text" id="nome" onChange={e => setNome(e.target.value)} />
                 </div>
 
                 <div>
                     <label htmlFor="sigla">Sigla</label>
-                    <input type="text" name="sigla" id="sigla" />
+                    <input type="text" id="sigla" onChange={e => setSigla(e.target.value)} />
                 </div>
 
                 <div>
                     <button type="submit">Cadastrar</button>
-                    <button type="reset">Limpar</button>
+                    <button type="reset" onClick={() => { setNome(''); setSigla(''); }}>Limpar</button>
                 </div>
-
-
             </form>
-
         </main>
-    )
+    );
 }

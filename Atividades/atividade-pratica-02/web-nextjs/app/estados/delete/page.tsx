@@ -14,7 +14,7 @@ export default function DeleteEstado() {
         }
 
         try {
-            const response = await fetch(`http://localhost:3333/estados/:id`, requestInit);
+            const response = await fetch(`http://localhost:3333/estados/${1}`, requestInit);
             if (response.ok) {
                 alert(`Estado ${id} deletado com sucesso`);
                 // Redirect to /estados
