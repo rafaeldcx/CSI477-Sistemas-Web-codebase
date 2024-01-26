@@ -8,7 +8,7 @@ export default function Home() {
       <h1 className="font-bold text-3xl">Sistema de Controle de Doação</h1>
 
       <Link href="#">Home</Link>
-      <Link href="http://localhost:3333/estados">Estados</Link>
+      <Link href="http://localhost:3000/estados">Estados</Link>
       <Link href="#">Cidades</Link>
       <Link href="#">Pessoas</Link>
       <Link href="#">Locais de Coleta</Link>
