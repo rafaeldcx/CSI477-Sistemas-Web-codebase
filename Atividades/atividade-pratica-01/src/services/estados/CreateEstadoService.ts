@@ -22,7 +22,7 @@ export class createEstadoService {
             }
         })                                                               // Creating customer
                                                                         
-
+        console.log(estado)
         return estado
     }
 }

@@ -6,6 +6,7 @@ import { doacoesRoutes } from "./routes/doacoes";
 import { locaisColetasRoutes } from "./routes/locaiscoleta";
 import { pessoasRoutes } from "./routes/pessoas";
 import { tiposSanguineosRoutes } from "./routes/tipossanguineos";
+
                          
 
 const app = fastify({ logger: true });                               // Creating Fastify instance

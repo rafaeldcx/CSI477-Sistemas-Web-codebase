@@ -1,6 +1,6 @@
 "use client"
 import { FormEvent, useState } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function CreateEstado() {
     const [nome, setNome] = useState('');
@@ -18,7 +18,7 @@ export default function CreateEstado() {
             body: JSON.stringify(data),
         });
 
-        if (!response.ok) throw new Error("Error creating estado");
+        //if (!response.ok) throw new Error("Error creating estado");
 
         const estado = await response.json();
         alert(`Estado ${estado.id} criado com sucesso`);

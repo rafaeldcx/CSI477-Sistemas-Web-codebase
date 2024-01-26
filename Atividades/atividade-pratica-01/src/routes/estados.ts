@@ -12,7 +12,7 @@ export async function estadosRoutes(instance: FastifyInstance, options: FastifyP
         return { ok: "true" };
     });                                                                                        // Defining route handler
 
-    instance.post("/estado", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.post("/estados", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreateEstadoController().handle(request, reply);                                                        
     });   
     
