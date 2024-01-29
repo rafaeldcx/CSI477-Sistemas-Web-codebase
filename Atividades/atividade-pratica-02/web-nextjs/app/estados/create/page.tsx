@@ -1,6 +1,7 @@
 "use client"
 import { FormEvent, useState } from "react";
 import { useRouter } from 'next/navigation';
+import Input from "../../components/forms/Input";
 
 export default function CreateEstado() {
     const [nome, setNome] = useState('');
@@ -31,16 +32,16 @@ export default function CreateEstado() {
             <h1>Cadastro de estados: {nome}</h1>
 
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="nome">Nome</label>
-                    <input type="text" id="nome" onChange={e => setNome(e.target.value)} />
-                </div>
 
-                <div>
-                    <label htmlFor="sigla">Sigla</label>
-                    <input type="text" id="sigla" onChange={e => setSigla(e.target.value)} />
-                </div>
+            <div>
+                <Input name="nome" label="Nome" setValue={(event) => 
+                    setNome(event.target.value)} />
+            </div>
 
+                <Input name="sigla" label="Sigla" setValue={(event) =>
+                    setSigla(event.target.value)} />
+
+               
                 <div>
                     <button type="submit">Cadastrar</button>
                     <button type="reset" onClick={() => { setNome(''); setSigla(''); }}>Limpar</button>
