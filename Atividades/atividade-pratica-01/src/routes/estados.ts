@@ -20,15 +20,15 @@ export async function estadosRoutes(instance: FastifyInstance, options: FastifyP
         return new GetAllEstadoController().handle(request, reply);                                                        
     });   
 
-    instance.get("/estado/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.get("/estados/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new GetByIDEstadoController().handle(request, reply);
     });
        
-    instance.delete("/estado/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.delete("/estados/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new DeleteEstadoController().handle(request, reply);                                                        
     });   
 
-    instance.put("/estado/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/estados", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdateEstadoController().handle(request, reply);                                                        
     }); 
     

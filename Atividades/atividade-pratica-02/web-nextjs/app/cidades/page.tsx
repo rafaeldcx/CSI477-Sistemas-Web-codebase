@@ -1,3 +1,8 @@
+"use client"
+
+import Link from "next/link";
+import Line from "../components/Line";
+
 const getAllCidades = async () => {
     const cidades = await fetch('http://localhost:3333/cidades');
     return cidades.json();
@@ -6,7 +11,7 @@ const getAllCidades = async () => {
 interface CidadeInterface {
     id: number;
     nome: string;
-    estado_id: number;
+    estadoId: number;
     created_at: string;
     updated_at: string;
 }
@@ -17,12 +22,13 @@ export default async function Cidade() {
     return (
         <main>
             <h1>Lista de cidades</h1>
+            <Link href="/cidades/create">Criar cidade</Link>
 
             <ul>
                 {
                     cidades.map((cidade) => {
                         return (
-                            <li key={cidade.id}>{cidade.nome}</li>
+                            <Line key={cidade.id} id={cidade.id} description={cidade.nome} />
                         )
                     })
                 }

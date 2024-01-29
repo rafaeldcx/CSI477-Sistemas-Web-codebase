@@ -15,7 +15,7 @@ export async function tiposSanguineosRoutes(instance: FastifyInstance, options: 
         return { ok: "true" };
     });
 
-    instance.post("/tiposanguineo", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.post("/tiposanguineos", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreateTipoSanguineoController().handle(request, reply);                                                        
     });   
     
@@ -23,11 +23,11 @@ export async function tiposSanguineosRoutes(instance: FastifyInstance, options: 
         return new GetAllTipoSanguineoController().handle(request, reply);                                                        
     });   
 
-    instance.get("/tiposanguineo/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.get("/tiposanguineos/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new GetByIDTipoSanguineoController().handle(request, reply);
     });
 
-    instance.put("/tiposanguineo/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/tiposanguineos", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdateTipoSanguineoController().handle(request, reply);
     });
 

@@ -13,7 +13,7 @@ export async function doacoesRoutes(instance: FastifyInstance, options: FastifyP
         return { ok: "true" };
     });
 
-    instance.post("/doacao", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.post("/doacoes", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreateDoacaoController().handle(request, reply);                                                        
     });   
     
@@ -21,11 +21,11 @@ export async function doacoesRoutes(instance: FastifyInstance, options: FastifyP
         return new GetAllDoacaoController().handle(request, reply);                                                        
     });   
 
-    instance.get("/doacao/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.get("/doacoes/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new GetByIDDoacaoController().handle(request, reply);
     });
 
-    instance.put("/doacao/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/doacoes", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdateDoacaoController().handle(request, reply);
     });
 

@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react';
 
-export default function DeleteEstado() {
+export default function DeletePessoa() {
     const { push } = useRouter();
     const [id, setId] = useState('');
 
@@ -14,11 +14,11 @@ export default function DeleteEstado() {
         }
 
         try {
-            const response = await fetch(`http://localhost:3333/estados/${id}`, requestInit);
+            const response = await fetch(`http://localhost:3333/pessoas/${id}`, requestInit);
             if (response.ok) {
-                alert(`Estado ${id} deletado com sucesso`);
-                // Redirect to /estados
-                push('/estados');
+                alert(`Pessoa ${id} deletada com sucesso`);
+                // Redirect to /pessoas
+                push('/pessoas');
             }
         } catch (error) {
             // Handle error
@@ -28,7 +28,7 @@ export default function DeleteEstado() {
 
     return (
         <main className="container m-auto">
-            <h1>Deletar estado</h1>
+            <h1>Deletar pessoa</h1>
 
             <form onSubmit={handleSubmit}>
                 <div>

@@ -12,7 +12,7 @@ export async function cidadesRoutes(instance: FastifyInstance, options: FastifyP
         return { ok: "true" };
     });                                                                                        // Defining route handler
 
-    instance.post("/cidade", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.post("/cidades", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreateCidadeController().handle(request, reply);                                                        
     });   
     
@@ -20,15 +20,15 @@ export async function cidadesRoutes(instance: FastifyInstance, options: FastifyP
         return new GetAllCidadeController().handle(request, reply);                                                        
     });   
 
-    instance.get("/cidade/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.get("/cidades/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new GetByIDCidadeController().handle(request, reply);
     });
        
-    instance.delete("/cidade/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.delete("/cidades/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new DeleteCidadeController().handle(request, reply);                                                        
     });   
 
-    instance.put("/cidade/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/cidades", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdateCidadeController().handle(request, reply);                                                        
     }); 
     

@@ -12,7 +12,7 @@ export async function pessoasRoutes(instance: FastifyInstance, options: FastifyP
         return { ok: "true" };
     });
 
-    instance.post("/pessoa", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.post("/pessoas", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreatePessoaController().handle(request, reply);                                                        
     });   
     
@@ -20,15 +20,15 @@ export async function pessoasRoutes(instance: FastifyInstance, options: FastifyP
         return new GetAllPessoaController().handle(request, reply);                                                        
     });   
 
-    instance.get("/pessoa/:nome", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.get("/pessoas/:nome", async (request: FastifyRequest, reply: FastifyReply) => {
         return new GetByNomePessoaController().handle(request, reply);
     });
 
-    instance.put("/pessoa/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/pessoas", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdatePessoaController().handle(request, reply);
     });
 
-    instance.delete("/pessoa/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.delete("/pessoas/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new DeletePessoaController().handle(request, reply);
     });
 }

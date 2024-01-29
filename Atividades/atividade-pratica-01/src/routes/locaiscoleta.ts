@@ -25,7 +25,7 @@ export async function locaisColetasRoutes(instance: FastifyInstance, options: Fa
         return new GetByIDLocalColetaController().handle(request, reply);
     });
 
-    instance.put("/locaiscoleta/:id", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/locaiscoleta", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdateLocalColetaController().handle(request, reply);
     });
 

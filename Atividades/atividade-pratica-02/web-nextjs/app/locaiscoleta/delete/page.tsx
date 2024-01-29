@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react';
 
-export default function DeleteEstado() {
+export default function DeleteLocalColeta() {
     const { push } = useRouter();
     const [id, setId] = useState('');
 
@@ -14,11 +14,11 @@ export default function DeleteEstado() {
         }
 
         try {
-            const response = await fetch(`http://localhost:3333/estados/${id}`, requestInit);
+            const response = await fetch(`http://localhost:3333/locaiscoleta/${id}`, requestInit);
             if (response.ok) {
-                alert(`Estado ${id} deletado com sucesso`);
-                // Redirect to /estados
-                push('/estados');
+                alert(`Local de Coleta ${id} deletado com sucesso`);
+                // Redirect to /locaisColeta
+                push('/locaisColeta');
             }
         } catch (error) {
             // Handle error
@@ -28,7 +28,7 @@ export default function DeleteEstado() {
 
     return (
         <main className="container m-auto">
-            <h1>Deletar estado</h1>
+            <h1>Deletar Local de Coleta</h1>
 
             <form onSubmit={handleSubmit}>
                 <div>
