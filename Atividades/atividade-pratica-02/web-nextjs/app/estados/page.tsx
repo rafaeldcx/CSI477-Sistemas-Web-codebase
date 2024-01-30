@@ -1,24 +1,9 @@
-"use client"
 
 import Link from "next/link";
 import Line from "../components/Line";
+import EstadoInterface from "../types/estado";
+import getAllEstados from "../repository/estados/GetAllEstados";
 
-
-const getAllEstados = async () => {
-
-    const estados =  await fetch('http://localhost:3333/estados')
-
-    return estados.json();
-}
-
-interface EstadoInterface {
-    id: number;
-    nome: string;
-    sigla: string;
-
-    created_at: string;
-    updated_at: string;
-}
 
 export default async function Estado() {
 

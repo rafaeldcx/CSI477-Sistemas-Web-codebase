@@ -1,19 +1,12 @@
-"use client"
 
 import Link from "next/link";
 import Line from "../components/Line";
+import CidadeInterface from "../types/cidade";
+import getAllEstados from "../repository/estados/GetAllEstados";
 
 const getAllCidades = async () => {
-    const cidades = await fetch('http://localhost:3333/cidades');
+    const cidades = await fetch('http://localhost:3333/cidades', {cache: "no-store"});
     return cidades.json();
-}
-
-interface CidadeInterface {
-    id: number;
-    nome: string;
-    estadoId: number;
-    created_at: string;
-    updated_at: string;
 }
 
 export default async function Cidade() {
@@ -27,8 +20,11 @@ export default async function Cidade() {
             <ul>
                 {
                     cidades.map((cidade) => {
+
+                        const nome = `${cidade.nome} - ${cidade.estado.sigla}`;
+
                         return (
-                            <Line key={cidade.id} id={cidade.id} description={cidade.nome} />
+                            <Line key={cidade.id} id={cidade.id} description={nome} />
                         )
                     })
                 }

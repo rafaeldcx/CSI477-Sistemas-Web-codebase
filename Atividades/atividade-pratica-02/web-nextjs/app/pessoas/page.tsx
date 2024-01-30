@@ -1,10 +1,9 @@
-"use client"
 
 import Link from "next/link";
 import Line from "../components/Line";
 
 const getAllPessoas = async () => {
-    const pessoas = await fetch('http://localhost:3333/pessoas');
+    const pessoas = await fetch('http://localhost:3333/pessoas', {cache: "no-store"});
     return pessoas.json();
 }
 

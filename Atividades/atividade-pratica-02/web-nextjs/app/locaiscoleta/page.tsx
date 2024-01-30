@@ -1,10 +1,9 @@
-"use client"
 
 import Link from "next/link";
 import Line from "../components/Line";
 
 const getAllLocaisColeta = async () => {
-    const locaisColeta = await fetch('http://localhost:3333/locaiscoleta');
+    const locaisColeta = await fetch('http://localhost:3333/locaiscoleta', { cache: "no-store" });
     return locaisColeta.json();
 }
 
