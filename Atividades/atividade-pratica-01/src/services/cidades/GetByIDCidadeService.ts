@@ -6,13 +6,14 @@ export class getByIDCidadeService {
         try{
             const cidade = await prismaClient.cidade.findFirst({
                 where:{
-                    id: id
+                    id: Number(id)
                 }
             })
 
             return cidade
 
         } catch(error){    
+            console.error(error)
             throw new Error("Cidade not found")
         }
     }
