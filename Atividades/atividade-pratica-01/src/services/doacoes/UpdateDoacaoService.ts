@@ -22,8 +22,17 @@ export class updateDoacaoService {
                 id: findDoacao.id
             },
             data:{
-                pessoaId: pessoaId, 
-                localId: localId,
+                pessoa: {
+                    connect: {
+                        id: pessoaId
+                    }
+                }, 
+                localColeta: {
+                    connect: {
+                        id: localId
+                    }
+                
+                },
                 data: data
             }
         })

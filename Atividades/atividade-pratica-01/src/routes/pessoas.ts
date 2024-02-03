@@ -20,7 +20,7 @@ export async function pessoasRoutes(instance: FastifyInstance, options: FastifyP
         return new GetAllPessoaController().handle(request, reply);                                                        
     });   
 
-    instance.get("/pessoas/:nome", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.get("/pessoas/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new GetByNomePessoaController().handle(request, reply);
     });
 

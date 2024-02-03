@@ -48,7 +48,7 @@ export default function DeleteCidade( {params}: DeleteCidadeParamsInterface ) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
         });
-
+ 
         const cidade = await response.json();
         alert(`Cidade ${cidade.id} excluída com sucesso`);
 

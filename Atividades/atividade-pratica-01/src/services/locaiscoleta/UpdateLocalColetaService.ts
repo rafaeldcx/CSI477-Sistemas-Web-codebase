@@ -26,7 +26,11 @@ export class updateLocalColetaService {
                 rua: rua,
                 numero: numero,
                 complemento: complemento,
-                cidadeId: cidadeId 
+                cidade: {
+                    connect: {
+                        id: cidadeId
+                    }
+                }
             }
         })
     }

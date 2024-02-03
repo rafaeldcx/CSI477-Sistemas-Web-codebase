@@ -24,7 +24,11 @@ export class updateCidadeService {
             },
             data:{
                 nome: nome,
-                estadoId: estadoId
+                estado: {
+                    connect: {
+                        id: estadoId
+                    }
+                }
             }
         })
 

@@ -18,7 +18,7 @@ export class updatePessoaService {
             throw new Error("Pessoa not found")
         }
 
-        await prismaClient.pessoa.update({
+       const pessoa = await prismaClient.pessoa.update({
             where: {
                 id: findPessoa.id
             },
@@ -27,10 +27,20 @@ export class updatePessoaService {
                 rua: rua,
                 numero: numero,
                 complemento: complemento,
-                cidadeId: cidadeId,
+                cidade: {
+                    connect: {
+                        id: cidadeId
+                    }
+                },
                 rg: rg,
-                tipoId: tipoId
+                tipoSanguineo: {
+                    connect: {
+                        id: tipoId
+                    }
+                }
             }
         })
+
+        return pessoa
     }
 }

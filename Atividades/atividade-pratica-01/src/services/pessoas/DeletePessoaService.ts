@@ -16,8 +16,7 @@ export class deletePessoaService {
 
         const findPessoa = await prismaClient.pessoa.findFirst({
             where:{
-                id: id,
-                nome: nome
+                id: id
             }
         })
     
@@ -28,7 +27,6 @@ export class deletePessoaService {
         await prismaClient.estado.delete({
             where: {
                 id: findPessoa.id,
-                nome: findPessoa.nome
             }
         })
 
