@@ -17,7 +17,8 @@ export class updateCidadeService {
             throw new Error("Cidade not found")
         }
 
-        await prismaClient.cidade.update({
+
+        const cidade = await prismaClient.cidade.update({
             where: {
                 id: findCidade.id
             },
@@ -26,5 +27,7 @@ export class updateCidadeService {
                 estadoId: estadoId
             }
         })
+
+        return cidade
     }
 }

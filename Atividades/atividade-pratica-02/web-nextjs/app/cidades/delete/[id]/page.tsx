@@ -7,13 +7,14 @@ import EstadoInterface from "@/app/types/estado";
 import getAllEstados from "@/app/repository/estados/GetAllEstados";
 import getByIdCidade from "@/app/repository/estados/GetByIdCidades";
 
-interface UpdateCidadeParamsInterface {
+
+interface DeleteCidadeParamsInterface {
     params: {
         id: string;
     }
 }
 
-export default function UpdateCidade( {params}: UpdateCidadeParamsInterface ) {
+export default function DeleteCidade( {params}: DeleteCidadeParamsInterface ) {
     const [nome, setNome] = useState('');
     const [estadoId, setEstadoId] = useState('');
     const [estados, setEstados] = useState<EstadoInterface[]>([]);
@@ -38,27 +39,26 @@ export default function UpdateCidade( {params}: UpdateCidadeParamsInterface ) {
     const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-        const data = { id: Number(params.id), nome, estadoId: Number(estadoId)};
+        const data = { id: Number(params.id)};
 
     try {
 
         const response = await fetch('http://localhost:3333/cidades', {
-            method: 'PUT',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
         });
 
         const cidade = await response.json();
-        alert(`Cidade ${cidade.id} atualizada com sucesso`);
+        alert(`Cidade ${cidade.id} excluída com sucesso`);
 
         push('/cidades');
     } catch (error) {
         console.error(error);
-        window.alert('Erro ao atualizar a cidade');
+        window.alert('Erro ao deletar a cidade');
     }
 }
     
-
 
     return (
         <main className="container m-auto">
@@ -88,7 +88,7 @@ export default function UpdateCidade( {params}: UpdateCidadeParamsInterface ) {
                 </div>  
             
                 <div>
-                    <button type="submit">Atualizar</button>
+                    <button type="submit">Deletar</button>
                     <button type="reset" onClick={() => { setNome(''); setEstadoId(''); }}>Limpar</button>
                 </div>
             </form>

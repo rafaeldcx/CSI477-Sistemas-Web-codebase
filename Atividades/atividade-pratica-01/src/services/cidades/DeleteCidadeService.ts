@@ -7,7 +7,7 @@ interface deleteCidadeProps{
 
 
 export class deleteCidadeService {
-    async execute({id}: deleteCidadeProps) {
+    async execute(id: number) {
 
         if(!id){
             throw new Error("Invalid Request")
@@ -23,11 +23,13 @@ export class deleteCidadeService {
             throw new Error("Cidade not found")
         }
 
-        await prismaClient.cidade.delete({
+       const cidade = await prismaClient.cidade.delete({
             where: {
-                id: findCidade.id
+                id
             }
         })
+
+        return cidade
 
     return {message: "Cidade deleted successfully"}
     
