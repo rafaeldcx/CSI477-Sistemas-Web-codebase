@@ -24,11 +24,11 @@ export async function cidadesRoutes(instance: FastifyInstance, options: FastifyP
         return new GetByIDCidadeController().handle(request, reply);
     });
        
-    instance.delete("/cidades", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.delete("/cidades/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new DeleteCidadeController().handle(request, reply);                                                        
     });   
 
-    instance.put("/cidades", async (request: FastifyRequest, reply: FastifyReply) => {
+    instance.put("/cidades/:id", async (request: FastifyRequest, reply: FastifyReply) => {
         return new UpdateCidadeController().handle(request, reply);                                                        
     }); 
     

@@ -1,3 +1,4 @@
+import { Console } from "console";
 import prismaClient from "../../database";
 
 
@@ -6,11 +7,11 @@ interface deleteCidadeProps{
 }
 
 
-export class deleteCidadeService {
-    async execute(id: number) {
 
+export class DeleteCidadeService {
+    async execute(id: number) {
         if(!id){
-            throw new Error("Invalid Request")
+            console.error("Invalid Request")
         }
 
         const findCidade = await prismaClient.cidade.findFirst({
@@ -23,15 +24,20 @@ export class deleteCidadeService {
             throw new Error("Cidade not found")
         }
 
-       const cidade = await prismaClient.cidade.delete({
+        // Delete or update all records in other tables that reference this city
+        await prismaClient.pessoa.deleteMany({
             where: {
-                id
+                cidadeId: id
             }
-        })
+        });
 
-        return cidade
+        // Now you can delete the city
+        const cidade = await prismaClient.cidade.delete({
+            where: {
+                id: id
+            }
+        });
 
-    return {message: "Cidade deleted successfully"}
-    
+        return cidade;
     }
 }

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Input from "@/app/components/forms/Input";
 import EstadoInterface from "@/app/types/estado";
 import getAllEstados from "@/app/repository/estados/GetAllEstados";
-import getByIdCidade from "@/app/repository/estados/GetByIdCidades";
+import getByIdCidade from "@/app/repository/cidades/GetByIdCidades";
 
 interface UpdateCidadeParamsInterface {
     params: {

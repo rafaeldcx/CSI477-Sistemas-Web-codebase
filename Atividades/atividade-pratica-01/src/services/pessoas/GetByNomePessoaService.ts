@@ -1,12 +1,12 @@
 import prismaClient from '../../database'
 
 export class getByNomePessoaService {
-    async execute(nome: string) {
+    async execute(id: number) {
 
         try{
             const pessoa = await prismaClient.pessoa.findFirst({
                 where:{
-                    nome: nome
+                    id: id
                 }
             })
 

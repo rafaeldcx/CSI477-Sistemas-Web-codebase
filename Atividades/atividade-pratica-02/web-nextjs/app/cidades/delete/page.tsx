@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react';
 
+
 export default function DeleteCidade() {
     const { push } = useRouter();
     const [id, setId] = useState('');
@@ -9,8 +10,12 @@ export default function DeleteCidade() {
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
+        const data = { id: Number(id) };
+
         const requestInit : RequestInit = {
             method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
         }
 
         try {
