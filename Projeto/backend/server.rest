@@ -1,0 +1,155 @@
+# PASSAGEIRO
+
+GET http://localhost:4900/passageiros
+
+###
+
+POST http://localhost:4900/passageiros
+Content-Type: application/json
+
+{
+    "nome": "Ricardo",
+    "cpf": "61856wdadfbgwdesfdfgahj6sa18",
+    "email": "diosmhwdgfeddfl@gmail.com"
+}
+
+###
+
+PUT http://localhost:4900/passageiros
+Content-Type: application/json
+
+{
+    "passageiro_id": 1,
+    "nome": "Ricardo",
+    "cpf": "6185661qwdad8",
+    "email": "qwfwgwg@gmail.com"
+}
+
+###
+
+DELETE http://localhost:4900/passageiros
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+# RESERVAS
+
+###
+
+GET http://localhost:4900/reservas
+
+###
+
+POST http://localhost:4900/reservas
+Content-Type: application/json
+
+{
+    "nome_reserva": "Riweifnsjv",
+    "voo_id": 2,
+    "passageiro_id": 8,
+    "data": "2021-05-20T00:00:00.000Z"
+}
+
+###
+
+PUT http://localhost:4900/reservas
+Content-Type: application/json
+
+{
+    "reserva_id": 1,
+    "nome_reserva": "Riweifnasadwdsasdwjv",
+    "voo_id": 2,
+    "passageiro_id": 2,
+    "data": "2021-05-20T00:00:00.000Z"
+}
+
+###
+
+DELETE http://localhost:4900/reservas
+Content-Type: application/json
+
+{
+    "reserva_id": 3
+}
+
+# AEROPORTO
+
+###
+
+GET http://localhost:4900/aeroportos
+
+###
+
+POST http://localhost:4900/aeroportos
+Content-Type: application/json
+
+{
+    "nome": "Aeroporto de São Paulo",
+    "cidade": "São Paudlo",
+    "pais": "Brasil"
+}
+
+###
+
+PUT http://localhost:4900/aeroportos
+Content-Type: application/json
+
+{
+    "aeroporto_id": 1,
+    "nome": "Aeroawdawporto de Guarulhos",
+    "cidade": "São Paulo",
+    "pais": "Brasil"
+}
+
+###
+
+DELETE http://localhost:4900/aeroportos
+Content-Type: application/json
+
+{
+    "id": 6
+}
+
+# VOOS
+
+###
+
+GET http://localhost:4900/voos
+
+###
+
+POST http://localhost:4900/voos
+Content-Type: application/json
+
+{   
+    "numero_voo": 12323,
+    "aeroporto_origem_id": 3,
+    "aeroporto_destino_id": 2,
+    "hora_partida": "2021-05-20T00:00:00.000Z",
+    "hora_chegada": "2021-05-20T00:00:00.000Z"
+}
+
+###
+
+PUT http://localhost:4900/voos
+Content-Type: application/json
+
+{
+    "voo_id": 3,
+    "numero_voo": 1224535673,
+    "aeroporto_origem_id": 3,
+    "aeroporto_destino_id": 2,
+    "hora_partida": "2021-05-20T00:00:00.000Z",
+    "hora_chegada": "2021-05-20T00:00:00.000Z"
+}
+
+###
+
+DELETE http://localhost:4900/voos
+Content-Type: application/json
+
+{
+    "voo_id": 3
+}

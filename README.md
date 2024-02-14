@@ -10,4 +10,4 @@
 
 ## [Projeto final:](./Projeto/README.md)
 
-Apresente uma breve descrição do seu projeto.
+O projeto final consiste em um sistema web de cadastramento de passagens de voos. 

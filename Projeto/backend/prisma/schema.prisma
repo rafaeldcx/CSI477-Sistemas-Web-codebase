@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Passageiro {
+  id              Int         @id @default(autoincrement())
+  nome            String
+  cpf             String      @unique
+  email           String      @unique
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+  reservas        Reserva[]
+
+  @@map("passageiros")
+}
+
+model Aeroporto {
+  id              Int         @id @default(autoincrement())
+  nome            String
+  cidade          String
+  pais            String
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+  voos_origem     Voo[]       @relation("AeroportoOrigem")
+  voos_destino    Voo[]       @relation("AeroportoDestino")
+
+  @@map("aeroportos")
+}
+
+model Reserva {
+  id              Int         @id @default(autoincrement())
+  nome_reserva    String
+  voo_id          Int
+  data            DateTime
+  passageiro_id   Int
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+  passageiro      Passageiro  @relation(fields: [passageiro_id], references: [id])
+  voo             Voo         @relation(fields: [voo_id], references: [id])
+
+  @@map("reservas")
+}
+
+model Voo {
+  id                      Int         @id @default(autoincrement())
+  numero_voo              Int         @unique
+  aeroporto_origem_id     Int
+  aeroporto_destino_id    Int
+  hora_partida            DateTime
+  hora_chegada            DateTime
+  created_at              DateTime    @default(now())
+  updated_at              DateTime    @updatedAt
+  reservas                Reserva[]
+  aeroporto_origem        Aeroporto   @relation("AeroportoOrigem", fields: [aeroporto_origem_id], references: [id])
+  aeroporto_destino       Aeroporto   @relation("AeroportoDestino", fields: [aeroporto_destino_id], references: [id])
+
+  @@map("voos")
+}
