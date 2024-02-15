@@ -50,7 +50,7 @@ const ListAeroporto = () => {
         <div>
             <h3>Lista de aeroportos</h3>
             <div>
-                <Link to="/aeroportos/create">Inserir novo passageiro</Link>
+                <Link to="/aeroportos/create">Inserir novo Aeroporto</Link>
             </div>
             <div>
                 <Link to="/">Voltar para a página inicial</Link>
