@@ -1,14 +1,14 @@
 {
-  "name": "backend",
+  "name": "back",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node JS",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Rafael de Carvalho",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.9.1",
@@ -16,6 +16,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "nodemon": "^3.0.3",
     "prisma": "^5.9.1"
   }
 }
